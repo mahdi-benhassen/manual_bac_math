@@ -16,18 +16,15 @@
 \usepackage{mdframed}
 \usepackage{makeidx}
 \usepackage{tikz}
+\usepackage{etoolbox} % Important for robustness
 
 % Bibliothèques TikZ
 \usetikzlibrary{patterns}
 \usetikzlibrary{intersections}
+\usetikzlibrary{calc}
 
-% Hyperref (à charger vers la fin)
-\usepackage{hyperref}
-
-% Background (Onglets)
+% Background (Onglets) - Load before hyperref
 \usepackage{background}
-
-\makeindex
 
 % Configuration de la mise en page
 \geometry{hmargin=2.5cm,vmargin=2.5cm}
@@ -57,7 +54,7 @@
         minimum width=1.5cm,
         minimum height=1.5cm,
         rounded corners=5pt
-      ] at (current page.east) {\thepart};
+      ] at (current page.east) {\Roman{part}};
     \end{tikzpicture}%
     \fi
   }
@@ -69,6 +66,9 @@
 \definecolor{mainred}{RGB}{204, 0, 0}
 \definecolor{lightgray}{RGB}{245, 245, 245}
 
+% Hyperref (à charger vers la fin)
+\usepackage{hyperref}
+
 % Configuration des hyperliens
 \hypersetup{
     colorlinks=true,
@@ -78,6 +78,8 @@
     pdftitle={Manuel d'Excellence - Bac Mathématiques},
     pdfpagemode=FullScreen,
 }
+
+\makeindex
 
 % Styles des chapitres
 \titleformat{\chapter}[display]
