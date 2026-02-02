@@ -35,6 +35,7 @@
   angle=0,
   opacity=1,
   contents={%
+    \ifnum\value{part}>0
     \begin{tikzpicture}[remember picture, overlay]
       \node[
         fill=lightgray,
@@ -42,12 +43,13 @@
         font=\bfseries,
         anchor=east,
         xshift=0cm,
-        yshift={-3cm - \thepart*2cm}, % Décalage vertical selon la partie
+        yshift={-3cm - \value{part}*2cm},
         minimum width=1.5cm,
         minimum height=1.5cm,
         rounded corners=5pt
       ] at (current page.east) {\thepart};
     \end{tikzpicture}%
+    \fi
   }
 }
 
