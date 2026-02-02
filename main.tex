@@ -2,19 +2,30 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
+
+% Mathématiques
 \usepackage{amsmath, amssymb, amsthm}
+
+% Mise en page et Graphismes
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{titlesec}
-\usepackage{hyperref}
 \usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{mdframed}
 \usepackage{makeidx}
 \usepackage{tikz}
+
+% Bibliothèques TikZ
 \usetikzlibrary{patterns}
 \usetikzlibrary{intersections}
+
+% Hyperref (à charger vers la fin)
+\usepackage{hyperref}
+
+% Background (Onglets)
+\usepackage{background}
 
 \makeindex
 
@@ -29,7 +40,6 @@
 \renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
 
 % Onglets latéraux (Thumb Indexes)
-\usepackage{background}
 \backgroundsetup{
   scale=1,
   angle=0,
