@@ -29,8 +29,12 @@ jobs:
 
       - name: Create source tarball
         run: |
-          tar -czvf manual_bac_math_source.tar.gz --exclude=.git --exclude=.github --exclude=manual_bac_math_source.tar.gz .
-
+          mkdir source_tmp
+          rsync -av --exclude='.git' --exclude='.github' --exclude='source_tmp' . source_tmp/
+          cd source_tmp
+          tar -czvf ../manual_bac_math_source.tar.gz .
+          cd ..
+          rm -rf source_tmp
       - name: Create Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
