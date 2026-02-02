@@ -29,7 +29,7 @@ jobs:
 
       - name: Create source tarball
         run: |
-          tar -czvf manual_bac_math_source.tar.gz --exclude=.git --exclude=.github .
+          tar -czvf manual_bac_math_source.tar.gz --exclude=.git --exclude=.github --exclude=manual_bac_math_source.tar.gz .
 
       - name: Create Release
         uses: softprops/action-gh-release@v1
