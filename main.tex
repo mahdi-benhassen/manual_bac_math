@@ -13,7 +13,7 @@
 \usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage{xcolor}
-\usepackage{mdframed}
+\usepackage[most]{tcolorbox}
 \usepackage{makeidx}
 \usepackage{tikz}
 \usepackage{etoolbox} % Important for robustness
@@ -90,56 +90,66 @@
 \newtheorem{definition}{Définition}[chapter]
 \newtheorem{propriete}{Propriété}[chapter]
 
-\newmdenv[
-  linecolor=mainblue,
-  linewidth=2pt,
-  backgroundcolor=blue!5,
-  topline=false,
-  bottomline=false,
-  rightline=false,
-  skipabove=10pt,
-  skipbelow=10pt
-]{rappel}
+\newtcolorbox{rappel}{
+  enhanced,
+  breakable,
+  colback=blue!5,
+  frame hidden,
+  borderline west={2pt}{0pt}{mainblue},
+  sharp corners,
+  boxsep=5pt,
+  left=10pt,
+  before skip=10pt,
+  after skip=10pt
+}
 
-\newmdenv[
-  linecolor=maingreen,
-  linewidth=2pt,
-  backgroundcolor=green!5,
-  frametitle={Exercice Type Bac},
-  frametitlerule=true,
-  frametitlebackgroundcolor=maingreen!20,
-  skipabove=15pt,
-  skipbelow=15pt
-]{exobac}
+\newtcolorbox{exobac}{
+  enhanced,
+  breakable,
+  colback=green!5,
+  colframe=maingreen,
+  colbacktitle=maingreen!20,
+  coltitle=black,
+  title={Exercice Type Bac},
+  fonttitle=\bfseries,
+  boxrule=2pt,
+  sharp corners,
+  before skip=15pt,
+  after skip=15pt
+}
 
-\newmdenv[
-  linecolor=mainred,
-  linewidth=1pt,
-  backgroundcolor=lightgray,
-  frametitle={\color{mainred}Correction},
-  frametitlerule=true,
-  frametitlebackgroundcolor=lightgray,
-  topline=true,
-  bottomline=true,
-  rightline=true,
-  leftline=true,
-  skipabove=10pt,
-  skipbelow=10pt
-]{correction}
+\newtcolorbox{correction}{
+  enhanced,
+  breakable,
+  colback=lightgray,
+  colframe=mainred,
+  colbacktitle=lightgray,
+  coltitle=mainred,
+  title={Correction},
+  fonttitle=\bfseries,
+  boxrule=1pt,
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt
+}
 
-\newmdenv[
-  linecolor=mainred,
-  linewidth=3pt,
-  topline=false,
-  bottomline=false,
-  rightline=false,
-  leftline=true,
-  backgroundcolor=white,
-  frametitle={\color{mainred}Règles de Rédaction},
-  frametitlerule=false,
-  skipabove=10pt,
-  skipbelow=10pt
-]{regleredaction}
+\newtcolorbox{regleredaction}{
+  enhanced,
+  breakable,
+  colback=white,
+  colframe=white,
+  borderline west={3pt}{0pt}{mainred},
+  coltitle=mainred,
+  colbacktitle=white,
+  title={Règles de Rédaction},
+  fonttitle=\bfseries,
+  titlerule=0pt,
+  sharp corners,
+  before skip=10pt,
+  after skip=10pt,
+  left=10pt
+}
+
 
 \newcommand{\autoeval}[1]{
 \begin{center}
