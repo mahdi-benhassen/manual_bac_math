@@ -1,0 +1,157 @@
+\chapter{Dénombrement et Probabilités}
+
+\section{Rappels Théoriques}
+
+\subsection{Dénombrement}
+Soit $E$ un ensemble fini à $n$ éléments.
+\begin{itemize}
+    \item \textbf{p-uplet (avec ordre et avec répétition) :} Tirage de $p$ éléments parmi $n$ avec remise.
+    Nombre de possibilités : $n^p$.
+    
+    \item \textbf{Arrangement (avec ordre et sans répétition) :} Tirage de $p$ éléments parmi $n$ sans remise.
+    Nombre de possibilités : $A_n^p = \frac{n!}{(n-p)!} = n(n-1)\dots(n-p+1)$.
+    
+    \item \textbf{Permutation :} Arrangement de $n$ éléments parmi $n$.
+    Nombre de possibilités : $P_n = n!$.
+    
+    \item \textbf{Combinaison (sans ordre et sans répétition) :} Tirage simultané de $p$ éléments parmi $n$.
+    Nombre de possibilités : $C_n^p = \binom{n}{p} = \frac{n!}{p!(n-p)!}$.
+\end{itemize}
+
+\subsection{Probabilités}
+\begin{itemize}
+    \item \textbf{Propriétés :} $P(\emptyset) = 0$, $P(\Omega) = 1$, $0 \leq P(A) \leq 1$.
+    $P(A \cup B) = P(A) + P(B) - P(A \cap B)$.
+    $P(\bar{A}) = 1 - P(A)$.
+    
+    \item \textbf{Probabilité Conditionnelle :}
+    $P(A|B) = P_B(A) = \frac{P(A \cap B)}{P(B)}$ (si $P(B) \neq 0$).
+    
+    \item \textbf{Indépendance :}
+    $A$ et $B$ indépendants $\iff P(A \cap B) = P(A) \times P(B)$.
+    
+    \item \textbf{Formule des Probabilités Totales :}
+    Si $(B_1, B_2, \dots, B_n)$ est une partition de l'univers :
+    $P(A) = \sum_{i=1}^n P(A \cap B_i) = \sum_{i=1}^n P(A|B_i) \times P(B_i)$.
+\end{itemize}
+
+\section{Exercices de Compréhension}
+
+\begin{rappel}
+\textbf{Objectif :} Choisir le bon outil de dénombrement et calculer une probabilité conditionnelle.
+\end{rappel}
+
+\textbf{Exercice 12.1 : Urne}
+Une urne contient 5 boules rouges et 3 boules vertes.
+1. On tire simultanément 3 boules. Combien de tirages possibles ?
+2. On tire successivement 3 boules avec remise. Combien de tirages possibles ?
+
+\begin{correction}
+1. Tirage simultané $\implies$ Combinaison.
+Total boules = 8. On tire 3.
+$C_8^3 = \frac{8 \times 7 \times 6}{3 \times 2 \times 1} = 56$.
+
+2. Tirage successif avec remise $\implies$ p-uplet.
+$8^3 = 512$.
+\end{correction}
+
+\textbf{Exercice 12.2 : Probabilité conditionnelle}
+Dans une population, 40\% sont des hommes ($H$) et 60\% des femmes ($F$).
+10\% des hommes sont fumeurs ($Fu$) et 5\% des femmes sont fumeuses.
+On choisit une personne au hasard. Quelle est la probabilité qu'elle soit fumeuse ?
+
+\begin{correction}
+Arbre pondéré :
+- $P(H) = 0.4$, $P(F) = 0.6$.
+- $P(Fu|H) = 0.1$, $P(Fu|F) = 0.05$.
+Formule des probabilités totales :
+$P(Fu) = P(Fu \cap H) + P(Fu \cap F)$
+$P(Fu) = P(H) \times P(Fu|H) + P(F) \times P(Fu|F)$
+$P(Fu) = 0.4 \times 0.1 + 0.6 \times 0.05$
+$P(Fu) = 0.04 + 0.03 = 0.07$.
+Soit 7\%.
+\end{correction}
+
+\section{Exercices Type Bac}
+
+\begin{exobac}
+\textbf{Sujet : Probabilités et Suite}
+
+Une urne contient 2 boules blanches et 1 boule noire.
+On effectue une suite de tirages d'une boule avec remise.
+On s'arrête dès que l'on obtient une boule noire.
+Soit $n$ un entier non nul. On note $E_n$ l'événement "on s'arrête au $n$-ième tirage".
+
+1. Calculer la probabilité de tirer une boule noire ($p$) et une boule blanche ($q$).
+2. Calculer $P(E_1)$, $P(E_2)$ et $P(E_3)$.
+3. Exprimer $P(E_n)$ en fonction de $n$.
+4. Calculer la probabilité $S_n$ de s'arrêter au plus tard au $n$-ième tirage.
+5. Déterminer la limite de $S_n$. Interpréter.
+\end{exobac}
+
+\begin{correction}
+\textbf{1. Probabilités élémentaires}
+Total = 3 boules. 1 Noire, 2 Blanches.
+$p = P(N) = 1/3$.
+$q = P(B) = 2/3$.
+
+\textbf{2. Premiers événements}
+- $E_1$ : "N au 1er tirage". $P(E_1) = 1/3$.
+- $E_2$ : "B au 1er, N au 2ème". $P(E_2) = (2/3) \times (1/3) = 2/9$.
+- $E_3$ : "B, B, N". $P(E_3) = (2/3)^2 \times (1/3) = 4/27$.
+
+\textbf{3. Formule générale}
+Pour s'arrêter au rang $n$, il faut avoir tiré $n-1$ boules blanches, puis une noire.
+$P(E_n) = q^{n-1} \times p = (\frac{2}{3})^{n-1} \times \frac{1}{3}$.
+
+\textbf{4. Somme $S_n$}
+$S_n = P(E_1 \cup E_2 \cup \dots \cup E_n) = \sum_{k=1}^n P(E_k)$.
+$S_n = \sum_{k=1}^n \frac{1}{3} (\frac{2}{3})^{k-1}$.
+C'est la somme des termes d'une suite géométrique de premier terme $1/3$ et de raison $2/3$.
+$S_n = \frac{1}{3} \frac{1 - (2/3)^n}{1 - 2/3} = \frac{1}{3} \frac{1 - (2/3)^n}{1/3} = 1 - (\frac{2}{3})^n$.
+
+\textbf{5. Limite}
+Comme $-1 < 2/3 < 1$, $\lim (2/3)^n = 0$.
+Donc $\lim S_n = 1$.
+Cela signifie que l'on est "presque sûr" de finir par tirer une boule noire si on joue indéfiniment.
+\end{correction}
+
+\textbf{Exercice 12.3 : Dénombrement et Anagrammes}
+Combien de mots (ayant un sens ou non) peut-on former avec les lettres du mot :
+1. MATHS
+2. ANANAS
+
+\begin{correction}
+\textbf{1. MATHS}
+5 lettres distinctes.
+Il s'agit de permutations de 5 éléments.
+Nombre = $5! = 120$.
+
+\textbf{2. ANANAS}
+6 lettres au total : 3 A, 2 N, 1 S.
+C'est une permutation avec répétition.
+Nombre = $\frac{6!}{3! \times 2! \times 1!} = \frac{720}{6 \times 2 \times 1} = \frac{720}{12} = 60$.
+\end{correction}
+
+\textbf{Exercice 12.4 : Vrai ou Faux ?}
+Répondre par Vrai ou Faux en justifiant.
+\begin{enumerate}
+    \item Si $A$ et $B$ sont indépendants, alors $P(A \cup B) = P(A) + P(B)$.
+    \item Le nombre de tirages simultanés de 3 boules parmi 10 est $10^3$.
+\end{enumerate}
+
+\begin{correction}
+\begin{enumerate}
+    \item \textbf{Faux.} $P(A \cup B) = P(A) + P(B) - P(A \cap B)$. Si indépendants, $P(A \cap B) = P(A)P(B) \neq 0$ (sauf cas triviaux). La formule proposée est pour des événements incompatibles.
+    \item \textbf{Faux.} Simultané = Combinaison $C_{10}^3$. $10^3$ c'est pour des tirages successifs avec remise.
+\end{enumerate}
+\end{correction}
+
+\autoeval{
+Je sais distinguer combinaison, arrangement et p-uplet & & \\ \hline
+Je sais calculer une probabilité avec un arbre pondéré & & \\ \hline
+Je connais la formule des probabilités totales & & \\ \hline
+Je sais calculer une somme de probabilités (suite géométrique) & & \\
+}
+
+\section{Exercices Type Bac}

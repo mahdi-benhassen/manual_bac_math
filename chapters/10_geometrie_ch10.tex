@@ -1,0 +1,192 @@
+\chapter{Les Coniques}
+
+\section{Rappels Théoriques}
+
+\subsection{Définition Monofocale}
+Une conique de foyer $F$, de directrice $D$ et d'excentricité $e > 0$ est l'ensemble des points $M$ tels que :
+\[ \frac{MF}{d(M, D)} = e \iff MF = e \cdot d(M, D) \]
+\begin{itemize}
+    \item Si $e = 1$ : \textbf{Parabole}.
+    \item Si $0 < e < 1$ : \textbf{Ellipse}.
+    \item Si $e > 1$ : \textbf{Hyperbole}.
+\end{itemize}
+
+\subsection{La Parabole ($e=1$)}
+Équation réduite dans un repère où $F(p/2, 0)$ et $D : x = -p/2$ :
+\[ y^2 = 2px \quad (p > 0) \]
+\begin{itemize}
+    \item Sommet : $O(0, 0)$.
+    \item Foyer : $F(p/2, 0)$.
+    \item Directrice : $x = -p/2$.
+    \item Axe de symétrie : $(Ox)$.
+\end{itemize}
+
+\subsection{L'Ellipse ($0 < e < 1$)}
+Définition bifocale : $MF + MF' = 2a$.
+Équation réduite :
+\[ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1 \quad (a > b > 0) \]
+Avec $c = \sqrt{a^2 - b^2}$.
+\begin{itemize}
+    \item Foyers : $F(c, 0)$ et $F'(-c, 0)$.
+    \item Sommets principaux : $A(a, 0)$ et $A'(-a, 0)$.
+    \item Sommets secondaires : $B(0, b)$ et $B'(0, -b)$.
+    \item Excentricité : $e = c/a$.
+    \item Directrices : $x = a^2/c = a/e$ et $x = -a/e$.
+\end{itemize}
+
+\subsection{L'Hyperbole ($e > 1$)}
+Définition bifocale : $|MF - MF'| = 2a$.
+Équation réduite :
+\[ \frac{x^2}{a^2} - \frac{y^2}{b^2} = 1 \quad (a > 0, b > 0) \]
+Avec $c = \sqrt{a^2 + b^2}$.
+\begin{itemize}
+    \item Foyers : $F(c, 0)$ et $F'(-c, 0)$.
+    \item Sommets : $A(a, 0)$ et $A'(-a, 0)$.
+    \item Excentricité : $e = c/a$.
+    \item Asymptotes : $y = \frac{b}{a}x$ et $y = -\frac{b}{a}x$.
+\end{itemize}
+
+\subsection{Tableau Récapitulatif}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Conique} & \textbf{Parabole} & \textbf{Ellipse} & \textbf{Hyperbole} \\
+\hline
+\textbf{Excentricité} & $e = 1$ & $0 < e < 1$ & $e > 1$ \\
+\hline
+\textbf{Équation Réduite} & $y^2 = 2px$ & $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ & $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$ \\
+\hline
+\textbf{Relation} & $p > 0$ & $c^2 = a^2 - b^2$ & $c^2 = a^2 + b^2$ \\
+\hline
+\textbf{Foyers} & $F(p/2, 0)$ & $F(\pm c, 0)$ & $F(\pm c, 0)$ \\
+\hline
+\textbf{Directrices} & $x = -p/2$ & $x = \pm a^2/c$ & $x = \pm a^2/c$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Exercices de Compréhension}
+
+\begin{rappel}
+\textbf{Objectif :} Déterminer les éléments caractéristiques d'une conique à partir de son équation.
+\end{rappel}
+
+\textbf{Exercice 10.1 : Ellipse}
+Soit l'ellipse $(E) : 9x^2 + 25y^2 = 225$. Déterminer ses foyers et son excentricité.
+
+\begin{correction}
+On divise par 225 :
+\[ \frac{9x^2}{225} + \frac{25y^2}{225} = 1 \iff \frac{x^2}{25} + \frac{y^2}{9} = 1 \]
+On identifie $a^2 = 25 \implies a = 5$ et $b^2 = 9 \implies b = 3$.
+Comme $a > b$, l'axe focal est $(Ox)$.
+$c^2 = a^2 - b^2 = 25 - 9 = 16 \implies c = 4$.
+\begin{itemize}
+    \item \textbf{Foyers :} $F(4, 0)$ et $F'(-4, 0)$.
+    \item \textbf{Excentricité :} $e = c/a = 4/5 = 0.8$.
+\end{itemize}
+\end{correction}
+
+\textbf{Exercice 10.2 : Parabole}
+Déterminer le foyer et la directrice de la parabole $(P) : y^2 = 8x$.
+
+\begin{correction}
+Forme $y^2 = 2px$.
+$2p = 8 \implies p = 4$.
+\begin{itemize}
+    \item \textbf{Foyer :} $F(p/2, 0) = F(2, 0)$.
+    \item \textbf{Directrice :} $x = -p/2 \implies x = -2$.
+\end{itemize}
+\end{correction}
+
+\textbf{Exercice 10.3 : Identification et Réduction}
+Déterminer la nature et les éléments de la conique d'équation : $x^2 - 4y^2 - 2x - 3 = 0$.
+
+\begin{correction}
+On groupe les termes en $x$ et en $y$.
+$(x^2 - 2x) - 4y^2 = 3$.
+$(x-1)^2 - 1 - 4y^2 = 3$.
+$(x-1)^2 - 4y^2 = 4$.
+On divise par 4 :
+\[ \frac{(x-1)^2}{4} - \frac{y^2}{1} = 1 \]
+On pose $X = x-1$ et $Y = y$. Dans le repère $( \Omega(1, 0), \vec{i}, \vec{j} )$, l'équation est $\frac{X^2}{4} - \frac{Y^2}{1} = 1$.
+C'est une \textbf{Hyperbole} de centre $\Omega(1, 0)$.
+$a^2 = 4 \implies a=2$. $b^2 = 1 \implies b=1$.
+$c^2 = a^2+b^2 = 5 \implies c=\sqrt{5}$.
+\begin{itemize}
+    \item Foyers dans le nouveau repère : $F(\sqrt{5}, 0)$.
+    \item Foyers dans l'ancien repère : $x = X+1 = 1+\sqrt{5}$, $y=0$. Donc $F(1+\sqrt{5}, 0)$.
+    \item Excentricité : $e = c/a = \sqrt{5}/2$.
+\end{itemize}
+\end{correction}
+
+\textbf{Exercice 10.4 : Vrai ou Faux ?}
+Répondre par Vrai ou Faux en justifiant.
+\begin{enumerate}
+    \item L'ensemble des points $M$ tels que $MF + MF' = 10$ est toujours une ellipse.
+    \item La parabole $y^2 = 4x$ a pour directrice la droite $x = -2$.
+\end{enumerate}
+
+\begin{correction}
+\begin{enumerate}
+    \item \textbf{Faux.} Il faut que la distance $FF' < 10$. Si $FF' = 10$, c'est le segment $[FF']$. Si $FF' > 10$, l'ensemble est vide.
+    \item \textbf{Faux.} $2p=4 \implies p=2$. La directrice est $x = -p/2 = -1$.
+\end{enumerate}
+\end{correction}
+
+\autoeval{
+Je sais reconnaître une conique sur son équation réduite & & \\ \hline
+Je sais calculer $c$ et $e$ pour chaque conique & & \\ \hline
+Je sais faire un changement d'origine pour réduire une équation & & \\ \hline
+Je connais les définitions monofocales et bifocales & & \\
+}
+
+\section{Exercices Type Bac}
+
+\begin{exobac}
+\textbf{Sujet : Étude d'une Hyperbole}
+
+Le plan est rapporté à un repère orthonormé $(O, \vec{i}, \vec{j})$.
+On considère l'ensemble $(\mathcal{H})$ des points $M(x, y)$ tels que :
+\[ x^2 - 4y^2 - 4 = 0 \]
+\begin{enumerate}
+    \item Montrer que $(\mathcal{H})$ est une hyperbole dont on précisera les éléments caractéristiques (sommets, foyers, excentricité, asymptotes).
+    \item Tracer les asymptotes et l'allure de $(\mathcal{H})$.
+    \item Soit $M(x_0, y_0)$ un point de $(\mathcal{H})$ avec $x_0 > 0$ et $y_0 > 0$.
+    La tangente en $M$ coupe les asymptotes en deux points $P$ et $Q$.
+    Montrer que $M$ est le milieu du segment $[PQ]$.
+\end{enumerate}
+\end{exobac}
+
+\begin{correction}
+\textbf{1. Éléments caractéristiques}
+$x^2 - 4y^2 = 4 \iff \frac{x^2}{4} - \frac{y^2}{1} = 1$.
+C'est une hyperbole d'axe focal $(Ox)$.
+\begin{itemize}
+    \item $a^2 = 4 \implies a = 2$.
+    \item $b^2 = 1 \implies b = 1$.
+    \item $c^2 = a^2 + b^2 = 5 \implies c = \sqrt{5}$.
+    \item \textbf{Sommets :} $A(2, 0)$ et $A'(-2, 0)$.
+    \item \textbf{Foyers :} $F(\sqrt{5}, 0)$ et $F'(-\sqrt{5}, 0)$.
+    \item \textbf{Excentricité :} $e = \frac{\sqrt{5}}{2}$.
+    \item \textbf{Asymptotes :} $y = \frac{1}{2}x$ et $y = -\frac{1}{2}x$.
+\end{itemize}
+
+\textbf{2. Tracé}
+On trace le rectangle de côtés $2a=4$ et $2b=2$. Les diagonales sont les asymptotes. L'hyperbole passe par les sommets et longe les asymptotes.
+
+\textbf{3. Propriété de la tangente}
+Équation de la tangente $(T)$ en $M(x_0, y_0)$ :
+\[ \frac{x_0 x}{4} - \frac{y_0 y}{1} = 1 \iff x_0 x - 4y_0 y - 4 = 0 \]
+Intersection avec $D_1 : y = \frac{1}{2}x \iff x = 2y$.
+$x_0(2y) - 4y_0 y = 4 \implies 2y(x_0 - 2y_0) = 4 \implies y_P = \frac{2}{x_0 - 2y_0}$.
+$x_P = \frac{4}{x_0 - 2y_0}$.
+Intersection avec $D_2 : y = -\frac{1}{2}x \iff x = -2y$.
+$x_0(-2y) - 4y_0 y = 4 \implies -2y(x_0 + 2y_0) = 4 \implies y_Q = \frac{-2}{x_0 + 2y_0}$.
+$x_Q = \frac{4}{x_0 + 2y_0}$.
+
+Calculons le milieu de $[PQ]$ :
+$y_I = \frac{y_P + y_Q}{2} = \frac{1}{x_0 - 2y_0} - \frac{1}{x_0 + 2y_0} = \frac{x_0 + 2y_0 - (x_0 - 2y_0)}{x_0^2 - 4y_0^2} = \frac{4y_0}{4} = y_0$.
+(Car $M \in \mathcal{H} \implies x_0^2 - 4y_0^2 = 4$).
+De même pour $x_I = x_0$.
+Donc $I = M$. Le point de contact est bien le milieu du segment découpé par les asymptotes.
+\end{correction}

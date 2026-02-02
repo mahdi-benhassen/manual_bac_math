@@ -1,0 +1,23 @@
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.idx
+*.ind
+*.ilg
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# PDF output (optional, usually we don't commit PDF but user might want it)
+# main.pdf
+
+# Archives
+*.zip
+*.rar
+*.tar.gz
+
+# OS generated files
+thumbs.db
+.DS_Store

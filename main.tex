@@ -1,0 +1,187 @@
+\documentclass[a4paper,12pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{makeidx}
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{intersections}
+
+\makeindex
+
+% Configuration de la mise en page
+\geometry{hmargin=2.5cm,vmargin=2.5cm}
+
+% Configuration des en-têtes et pieds de page (Fil d'Ariane)
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\leftmark}
+\fancyhead[R]{\thepage}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+
+% Onglets latéraux (Thumb Indexes)
+\usepackage{background}
+\backgroundsetup{
+  scale=1,
+  angle=0,
+  opacity=1,
+  contents={%
+    \begin{tikzpicture}[remember picture, overlay]
+      \node[
+        fill=lightgray,
+        text=black,
+        font=\bfseries,
+        anchor=east,
+        xshift=0cm,
+        yshift={-3cm - \thepart*2cm}, % Décalage vertical selon la partie
+        minimum width=1.5cm,
+        minimum height=1.5cm,
+        rounded corners=5pt
+      ] at (current page.east) {\thepart};
+    \end{tikzpicture}%
+  }
+}
+
+% Couleurs
+\definecolor{mainblue}{RGB}{0, 102, 204}
+\definecolor{maingreen}{RGB}{0, 153, 76}
+\definecolor{mainred}{RGB}{204, 0, 0}
+\definecolor{lightgray}{RGB}{245, 245, 245}
+
+% Configuration des hyperliens
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=mainblue,
+    pdftitle={Manuel d'Excellence - Bac Mathématiques},
+    pdfpagemode=FullScreen,
+}
+
+% Styles des chapitres
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{mainblue}}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+% Environnements pour les exercices et définitions
+\newtheorem{theoreme}{Théorème}[chapter]
+\newtheorem{definition}{Définition}[chapter]
+\newtheorem{propriete}{Propriété}[chapter]
+
+\newmdenv[
+  linecolor=mainblue,
+  linewidth=2pt,
+  backgroundcolor=blue!5,
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  skipabove=10pt,
+  skipbelow=10pt
+]{rappel}
+
+\newmdenv[
+  linecolor=maingreen,
+  linewidth=2pt,
+  backgroundcolor=green!5,
+  frametitle={Exercice Type Bac},
+  frametitlerule=true,
+  frametitlebackgroundcolor=maingreen!20,
+  skipabove=15pt,
+  skipbelow=15pt
+]{exobac}
+
+\newmdenv[
+  linecolor=mainred,
+  linewidth=1pt,
+  backgroundcolor=lightgray,
+  frametitle={\color{mainred}Correction},
+  frametitlerule=true,
+  frametitlebackgroundcolor=lightgray,
+  topline=true,
+  bottomline=true,
+  rightline=true,
+  leftline=true,
+  skipabove=10pt,
+  skipbelow=10pt
+]{correction}
+
+\newmdenv[
+  linecolor=mainred,
+  linewidth=3pt,
+  topline=false,
+  bottomline=false,
+  rightline=false,
+  leftline=true,
+  backgroundcolor=white,
+  frametitle={\color{mainred}Règles de Rédaction},
+  frametitlerule=false,
+  skipabove=10pt,
+  skipbelow=10pt
+]{regleredaction}
+
+\newcommand{\autoeval}[1]{
+\begin{center}
+\textbf{Grille d'Auto-évaluation} \\
+\vspace{0.2cm}
+\begin{tabular}{|p{0.7\textwidth}|c|c|}
+\hline
+\textbf{Compétence} & \textbf{Oui} & \textbf{Non} \\
+\hline
+#1
+\end{tabular}
+\end{center}
+}
+
+\title{\textbf{MANUEL D'EXCELLENCE \\ BAC MATHÉMATIQUES (TUNISIE)}}
+\author{Équipe Pédagogique}
+\date{2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\part*{Introduction \& Méthodologie}
+\addcontentsline{toc}{part}{Introduction \& Méthodologie}
+\include{chapters/00_intro}
+
+\part{Analyse}
+\include{chapters/01_analyse_ch1}
+\include{chapters/02_analyse_ch2}
+\include{chapters/03_analyse_ch3}
+\include{chapters/03b_synthese_analyse}
+\include{chapters/04_analyse_ch4}
+\include{chapters/05_analyse_ch5}
+\include{chapters/06_analyse_ch6}
+
+\part{Géométrie}
+\include{chapters/07_geometrie_ch7}
+\include{chapters/08_geometrie_ch8}
+\include{chapters/09_geometrie_ch9}
+\include{chapters/10_geometrie_ch10}
+
+\part{Arithmétique}
+\include{chapters/11_arithmetique_ch11}
+
+\part{Probabilités \& Statistiques}
+\include{chapters/12_proba_ch12}
+\include{chapters/13_proba_ch13}
+\include{chapters/14_proba_ch14}
+
+\appendix
+\part*{Annexes}
+\addcontentsline{toc}{part}{Annexes}
+\include{chapters/A1_annexes}
+
+\printindex
+
+\end{document}

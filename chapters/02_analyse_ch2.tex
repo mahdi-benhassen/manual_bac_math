@@ -1,0 +1,217 @@
+\chapter{Dérivabilité et Étude de Fonctions}
+
+\section{Rappels Théoriques}
+
+\subsection{Dérivabilité et Interprétations Géométriques}
+Soit $f$ une fonction définie sur un intervalle $I$ et $x_0 \in I$.
+\begin{definition}
+$f$ est dérivable en $x_0$ si la limite du taux d'accroissement existe et est finie :
+\[ \lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = L \quad (\text{avec } L \in \mathbb{R}) \]
+On note $f'(x_0) = L$.
+\end{definition}
+
+\textbf{Interprétations géométriques :}
+\begin{itemize}
+    \item \textbf{Tangente :} Si $f$ est dérivable en $x_0$, la courbe $\mathcal{C}_f$ admet une tangente $T$ d'équation :
+    \[ y = f'(x_0)(x - x_0) + f(x_0) \]
+    \item \textbf{Demi-tangente verticale :} Si $\lim_{x \to x_0} \frac{f(x) - f(x_0)}{x - x_0} = \pm \infty$, $f$ n'est pas dérivable en $x_0$, mais $\mathcal{C}_f$ admet une demi-tangente verticale.
+    \item \textbf{Point anguleux :} Si les limites à gauche et à droite sont finies mais différentes ($f'_g(x_0) \neq f'_d(x_0)$), $f$ n'est pas dérivable en $x_0$. La courbe admet deux demi-tangentes.
+\end{itemize}
+
+\subsection{Opérations sur les Dérivées}
+Soient $u$ et $v$ deux fonctions dérivables sur un intervalle $I$.
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Fonction} & \textbf{Dérivée} \\
+\hline
+$u + v$ & $u' + v'$ \\
+\hline
+$k \cdot u$ ($k \in \mathbb{R}$) & $k \cdot u'$ \\
+\hline
+$u \cdot v$ & $u'v + uv'$ \\
+\hline
+$\frac{u}{v}$ ($v \neq 0$) & $\frac{u'v - uv'}{v^2}$ \\
+\hline
+$\frac{1}{v}$ ($v \neq 0$) & $-\frac{v'}{v^2}$ \\
+\hline
+$u^n$ ($n \in \mathbb{Z}^*$) & $n u' u^{n-1}$ \\
+\hline
+$\sqrt{u}$ ($u > 0$) & $\frac{u'}{2\sqrt{u}}$ \\
+\hline
+$v \circ u$ & $u' \times (v' \circ u)$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Inégalités des Accroissements Finis (IAF)}
+\begin{theoreme}
+Soit $f$ une fonction dérivable sur un intervalle $I$. S'il existe deux réels $m$ et $M$ tels que pour tout $x \in I$, $m \leq f'(x) \leq M$, alors pour tout $a, b \in I$ ($a < b$) :
+\[ m(b-a) \leq f(b) - f(a) \leq M(b-a) \]
+\end{theoreme}
+\textbf{Conséquence importante :} Si $|f'(x)| \leq k$ avec $k \in [0, 1[$, alors pour tout $x, y \in I$, $|f(x) - f(y)| \leq k|x - y|$. Cela est crucial pour étudier la convergence des suites définies par $u_{n+1} = f(u_n)$.
+
+\subsection{Théorème de la Bijection Réciproque}
+Si $f$ est continue et strictement monotone sur $I$, elle réalise une bijection de $I$ sur $J = f(I)$. Sa fonction réciproque $f^{-1}$ est définie sur $J$.
+
+\textbf{Propriétés de $f^{-1}$ :}
+\begin{itemize}
+    \item $f^{-1}$ est continue sur $J$.
+    \item $f^{-1}$ a le même sens de variation que $f$.
+    \item Les courbes $\mathcal{C}_f$ et $\mathcal{C}_{f^{-1}}$ sont symétriques par rapport à la droite $y = x$.
+    \item \textbf{Dérivabilité :} Si $f$ est dérivable en $x_0$ et si $f'(x_0) \neq 0$, alors $f^{-1}$ est dérivable en $y_0 = f(x_0)$ et :
+    \[ (f^{-1})'(y_0) = \frac{1}{f'(x_0)} = \frac{1}{f'(f^{-1}(y_0))} \]
+\end{itemize}
+
+\section{Exercices de Compréhension}
+
+\begin{rappel}
+\textbf{Objectif :} Savoir calculer une dérivée composée et déterminer l'équation d'une tangente.
+\end{rappel}
+
+\textbf{Exercice 2.1 : Calcul de dérivées} \\
+Calculer la dérivée des fonctions suivantes :
+\begin{enumerate}
+    \item $f(x) = (2x^2 + 1)^3$
+    \item $g(x) = \sqrt{x^2 + 3x + 1}$
+\end{enumerate}
+
+\begin{correction}
+\begin{enumerate}
+    \item Forme $u^n$ avec $u(x) = 2x^2 + 1$, $u'(x) = 4x$.
+    \[ f'(x) = 3 \times (4x) \times (2x^2 + 1)^2 = 12x(2x^2 + 1)^2 \]
+    \item Forme $\sqrt{u}$ avec $u(x) = x^2 + 3x + 1$, $u'(x) = 2x + 3$.
+    \[ g'(x) = \frac{2x + 3}{2\sqrt{x^2 + 3x + 1}} \]
+\end{enumerate}
+\end{correction}
+
+\textbf{Exercice 2.2 : Bijection réciproque} \\
+Soit $f(x) = x^2 - 2x + 3$ définie sur $[1, +\infty[$.
+\begin{enumerate}
+    \item Montrer que $f$ réalise une bijection de $[1, +\infty[$ sur un intervalle $J$ à déterminer.
+    \item Déterminer l'expression de $f^{-1}(x)$.
+\end{enumerate}
+
+\begin{correction}
+\begin{enumerate}
+    \item $f$ est dérivable et $f'(x) = 2x - 2 = 2(x-1)$.
+    Sur $]1, +\infty[$, $f'(x) > 0$. $f$ est continue et strictement croissante sur $[1, +\infty[$.
+    $f(1) = 2$ et $\lim_{x \to +\infty} f(x) = +\infty$.
+    Donc $f$ est une bijection de $[1, +\infty[$ sur $J = [2, +\infty[$.
+    \item Soit $y \in J$ et $x \in [1, +\infty[$.
+    $y = x^2 - 2x + 3 \iff x^2 - 2x + (3-y) = 0$.
+    Équation du second degré en $x$. $\Delta = (-2)^2 - 4(1)(3-y) = 4 - 12 + 4y = 4y - 8 = 4(y-2)$.
+    Comme $y \geq 2$, $\Delta \geq 0$.
+    $x_1 = \frac{2 - 2\sqrt{y-2}}{2} = 1 - \sqrt{y-2}$ (Rejeté car $x \geq 1$).
+    $x_2 = \frac{2 + 2\sqrt{y-2}}{2} = 1 + \sqrt{y-2}$ (Accepté).
+    Donc $f^{-1}(x) = 1 + \sqrt{x-2}$ pour tout $x \in [2, +\infty[$.
+\end{enumerate}
+\end{correction}
+
+\textbf{Exercice 2.3 : Tangente et Approximation} \\
+Soit $f(x) = \frac{1}{1+x}$.
+\begin{enumerate}
+    \item Déterminer l'équation de la tangente $T$ à $\mathcal{C}_f$ au point d'abscisse 0.
+    \item En déduire une approximation affine de \frac{1}{1,001}.
+\end{enumerate}
+
+\begin{correction}
+\textbf{1. Équation de la tangente}
+$f(0) = 1$.
+$f'(x) = \frac{-1}{(1+x)^2}$, donc $f'(0) = -1$.
+$y = f'(0)(x-0) + f(0) = -1(x) + 1 = -x + 1$.
+$T: y = 1 - x$.
+
+\textbf{2. Approximation}
+Pour $x$ proche de 0, $f(x) \approx 1 - x$.
+On cherche $\frac{1}{1,001} = f(0,001)$.
+Avec $x = 0,001$, $f(0,001) \approx 1 - 0,001 = 0,999$.
+\end{correction}
+
+\textbf{Exercice 2.4 : Vrai ou Faux ?}
+Répondre par Vrai ou Faux en justifiant.
+\begin{enumerate}
+    \item Si $f$ est dérivable en $x_0$, alors $f$ est continue en $x_0$.
+    \item Si $f'(x) = g'(x)$ sur un intervalle $I$, alors $f(x) = g(x)$ sur $I$.
+\end{enumerate}
+
+\begin{correction}
+\begin{enumerate}
+    \item \textbf{Vrai.} C'est une propriété fondamentale du cours (la réciproque est fausse).
+    \item \textbf{Faux.} $f(x)$ et $g(x)$ diffèrent d'une constante. $(f-g)' = 0 \implies f-g = k$. Exemple : $f(x)=x^2+1, g(x)=x^2$.
+\end{enumerate}
+\end{correction}
+
+\autoeval{
+Je sais calculer la dérivée d'une fonction composée & & \\ \hline
+Je sais déterminer l'équation d'une tangente & & \\ \hline
+Je sais montrer qu'une fonction est une bijection & & \\ \hline
+Je connais le lien entre dérivabilité et continuité & & \\
+}
+
+\section{Exercices Type Bac}
+
+\begin{exobac}
+\textbf{Sujet : Étude complète et IAF}
+
+Soit $f$ la fonction définie sur $[0, +\infty[$ par $f(x) = \frac{2x+1}{x+2}$.
+\begin{enumerate}
+    \item Étudier les variations de $f$.
+    \item Montrer que pour tout $x \in [0, 2]$, $f(x) \in [0, 2]$.
+    \item Montrer que pour tout $x \in [0, 2]$, $|f'(x)| \leq \frac{3}{4}$.
+    \item Soit $(u_n)$ la suite définie par $u_0 = 0$ et $u_{n+1} = f(u_n)$.
+    \begin{enumerate}
+        \item Montrer par récurrence que pour tout $n$, $0 \leq u_n \leq 2$.
+        \item En utilisant l'IAF, montrer que $|u_{n+1} - 1| \leq \frac{3}{4} |u_n - 1|$.
+        \item En déduire que $|u_n - 1| \leq (\frac{3}{4})^n$.
+        \item Calculer la limite de la suite $(u_n)$.
+    \end{enumerate}
+\end{enumerate}
+\end{exobac}
+
+\begin{correction}
+\textbf{1. Variations}
+$f$ est dérivable sur $[0, +\infty[$ comme quotient de fonctions dérivables.
+\[ f'(x) = \frac{2(x+2) - 1(2x+1)}{(x+2)^2} = \frac{2x+4-2x-1}{(x+2)^2} = \frac{3}{(x+2)^2} \]
+Pour tout $x \geq 0$, $f'(x) > 0$. Donc $f$ est \textbf{strictement croissante} sur $[0, +\infty[$.
+
+\textbf{2. Intervalle stable}
+$f$ est croissante sur $[0, 2]$.
+Donc $f([0, 2]) = [f(0), f(2)]$.
+$f(0) = 1/2$ et $f(2) = 5/4$.
+On a bien $[1/2, 5/4] \subset [0, 2]$.
+
+\textbf{3. Majoration de la dérivée}
+Sur $[0, 2]$, la fonction $x \mapsto (x+2)^2$ est croissante.
+Minimum en 0 : $(0+2)^2 = 4$. Maximum en 2 : $(2+2)^2 = 16$.
+Donc $4 \leq (x+2)^2 \leq 16$.
+En passant à l'inverse : $\frac{1}{16} \leq \frac{1}{(x+2)^2} \leq \frac{1}{4}$.
+En multipliant par 3 : $\frac{3}{16} \leq f'(x) \leq \frac{3}{4}$.
+On a bien $|f'(x)| \leq \frac{3}{4}$.
+
+\textbf{4. Suite et IAF}
+Remarque préliminaire : On cherche le point fixe $f(x)=x \implies 2x+1 = x(x+2) \implies x^2 = 1$. Sur $[0, 2]$, la solution est $\alpha = 1$.
+
+\textbf{a) Récurrence :}
+- Init : $u_0 = 0 \in [0, 2]$. Vrai.
+- Hérédité : Supposons $u_n \in [0, 2]$. Comme $f([0, 2]) \subset [0, 2]$, alors $f(u_n) \in [0, 2]$, soit $u_{n+1} \in [0, 2]$.
+- Conclusion : Pour tout $n$, $0 \leq u_n \leq 2$.
+
+\textbf{b) IAF :}
+$f$ est dérivable sur $[0, 2]$ et $|f'(x)| \leq 3/4$.
+Appliquons l'IAF avec $a = u_n$ et $b = 1$ (le point fixe).
+\[ |f(u_n) - f(1)| \leq \frac{3}{4} |u_n - 1| \]
+Or $f(u_n) = u_{n+1}$ et $f(1) = 1$.
+Donc $|u_{n+1} - 1| \leq \frac{3}{4} |u_n - 1|$.
+
+\textbf{c) Déduction :}
+Par itération (ou récurrence) :
+$|u_n - 1| \leq \frac{3}{4} |u_{n-1} - 1| \leq (\frac{3}{4})^2 |u_{n-2} - 1| \leq \dots \leq (\frac{3}{4})^n |u_0 - 1|$.
+Avec $u_0 = 0$, $|u_0 - 1| = 1$.
+Donc $|u_n - 1| \leq (\frac{3}{4})^n$.
+
+\textbf{d) Limite :}
+Comme $0 < 3/4 < 1$, $\lim_{n \to +\infty} (\frac{3}{4})^n = 0$.
+D'après le théorème des gendarmes, $\lim_{n \to +\infty} |u_n - 1| = 0$, donc $\lim u_n = 1$.
+\end{correction}

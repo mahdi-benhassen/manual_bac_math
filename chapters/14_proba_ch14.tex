@@ -1,0 +1,145 @@
+\chapter{Statistiques à deux variables}
+
+\section{Rappels Théoriques}
+
+\subsection{Série Statistique Double}
+On étudie deux caractères $X$ et $Y$ sur une même population.
+On dispose de $n$ couples $(x_i, y_i)$.
+On représente cette série par un \textbf{nuage de points} $M_i(x_i, y_i)$ dans un repère orthogonal.
+
+\subsection{Point Moyen}
+Le point moyen $G(\bar{x}, \bar{y})$ est le centre de gravité du nuage.
+\[ \bar{x} = \frac{1}{n} \sum_{i=1}^n x_i \quad ; \quad \bar{y} = \frac{1}{n} \sum_{i=1}^n y_i \]
+
+\subsection{Covariance et Corrélation}
+\begin{itemize}
+    \item \textbf{Covariance :} $Cov(X, Y) = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{x})(y_i - \bar{y}) = (\frac{1}{n} \sum x_i y_i) - \bar{x}\bar{y}$.
+    \item \textbf{Coefficient de corrélation linéaire :}
+    \[ r = \frac{Cov(X, Y)}{\sigma_X \sigma_Y} \]
+    où $\sigma_X$ et $\sigma_Y$ sont les écarts-types marginaux.
+    \textbf{Interprétation :} $-1 \leq r \leq 1$.
+    \begin{itemize}
+        \item Si $|r|$ est proche de 1 (en général $|r| \geq 0.85$ ou $0.9$), il y a une \textbf{forte corrélation linéaire}. L'ajustement affine est alors justifié et de bonne qualité.
+        \item Si $|r|$ est proche de 0, les variables ne sont pas linéairement corrélées.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Ajustement Affine}
+Si le nuage a une forme allongée, on peut chercher une droite $D : y = ax + b$ qui "résume" le nuage.
+\textbf{Méthode des moindres carrés :}
+La droite de régression de $Y$ en $X$ a pour équation $y = ax + b$ avec :
+\[ a = \frac{Cov(X, Y)}{V(X)} \quad ; \quad b = \bar{y} - a\bar{x} \]
+Cette droite passe par le point moyen $G$.
+
+\section{Exercices de Compréhension}
+
+\begin{rappel}
+\textbf{Objectif :} Calculer les paramètres d'une série double et l'équation de la droite de régression.
+\end{rappel}
+
+\textbf{Exercice 14.1 : Calculs de base}
+Soit la série double :
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+$x_i$ & 1 & 2 & 3 \\
+\hline
+$y_i$ & 2 & 4 & 5 \\
+\hline
+\end{tabular}
+\end{center}
+1. Calculer $\bar{x}$ et $\bar{y}$.
+2. Calculer $Cov(X, Y)$.
+3. Déterminer l'équation de la droite de régression de $Y$ en $X$.
+
+\begin{correction}
+1. $\bar{x} = \frac{1+2+3}{3} = 2$.
+$\bar{y} = \frac{2+4+5}{3} = \frac{11}{3} \approx 3.67$.
+
+2. Moyenne des produits $\overline{xy} = \frac{1\times2 + 2\times4 + 3\times5}{3} = \frac{2+8+15}{3} = \frac{25}{3}$.
+$Cov(X, Y) = \overline{xy} - \bar{x}\bar{y} = \frac{25}{3} - 2 \times \frac{11}{3} = \frac{25 - 22}{3} = \frac{3}{3} = 1$.
+
+3. Variance de X : $V(X) = \frac{1^2+2^2+3^2}{3} - \bar{x}^2 = \frac{1+4+9}{3} - 4 = \frac{14}{3} - \frac{12}{3} = \frac{2}{3}$.
+Coefficient directeur $a = \frac{Cov(X, Y)}{V(X)} = \frac{1}{2/3} = \frac{3}{2} = 1.5$.
+Ordonnée à l'origine $b = \bar{y} - a\bar{x} = \frac{11}{3} - \frac{3}{2}(2) = \frac{11}{3} - 3 = \frac{2}{3}$.
+Droite : $y = 1.5x + \frac{2}{3}$.
+\end{correction}
+
+\section{Exercices Type Bac}
+
+\begin{exobac}
+\textbf{Sujet : Ajustement exponentiel}
+
+Une entreprise étudie l'évolution de son chiffre d'affaires $y_i$ (en milliers de dinars) en fonction du rang de l'année $x_i$.
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+Année & 1 & 2 & 3 & 4 & 5 \\
+\hline
+$y_i$ & 18 & 22 & 27 & 33 & 40 \\
+\hline
+\end{tabular}
+\end{center}
+Le nuage de points montre une croissance non linéaire. On pose $z_i = \ln(y_i)$.
+\textit{(Voir Chapitre 3 sur la fonction Logarithme pour les propriétés de $\ln$).}
+
+1. Dresser le tableau des valeurs $z_i$ (arrondies à $10^{-2}$).
+2. Calculer le coefficient de corrélation linéaire $r$ entre $x$ et $z$. Un ajustement affine est-il justifié ?
+3. Déterminer l'équation de la droite de régression de $z$ en $x$ ($z = ax+b$).
+4. En déduire une relation de la forme $y = A e^{Bx}$.
+5. Estimer le chiffre d'affaires prévisionnel pour l'année 7.
+\end{exobac}
+
+\begin{correction}
+\textbf{1. Tableau des $z_i = \ln(y_i)$}
+$z_1 = \ln(18) \approx 2.89$.
+$z_2 = \ln(22) \approx 3.09$.
+$z_3 = \ln(27) \approx 3.30$.
+$z_4 = \ln(33) \approx 3.50$.
+$z_5 = \ln(40) \approx 3.69$.
+
+\textbf{2. Corrélation}
+À la calculatrice :
+$\bar{x} = 3$, $\bar{z} \approx 3.29$.
+$r \approx 0.999$.
+Comme $r$ est très proche de 1, un ajustement affine entre $x$ et $z$ est \textbf{très justifié}.
+
+\textbf{3. Droite de régression $z$ en $x$}
+À la calculatrice :
+$a \approx 0.20$.
+$b \approx 2.69$.
+$z = 0.20x + 2.69$.
+
+\textbf{4. Relation $y$ et $x$}
+On a $\ln(y) = 0.20x + 2.69$.
+Donc $y = e^{0.20x + 2.69} = e^{2.69} \times e^{0.20x}$.
+$e^{2.69} \approx 14.73$.
+Donc $y \approx 14.73 e^{0.20x}$.
+
+\textbf{5. Prévision Année 7}
+Pour $x = 7$ :
+$y = 14.73 \times e^{0.20 \times 7} = 14.73 \times e^{1.4}$.
+$y \approx 14.73 \times 4.055 \approx 59.7$.
+Le chiffre d'affaires prévisionnel est d'environ \textbf{59 700 dinars}.
+\end{correction}
+
+\textbf{Exercice 14.3 : Vrai ou Faux ?}
+Répondre par Vrai ou Faux en justifiant.
+\begin{enumerate}
+    \item Si le coefficient de corrélation est $r = -0.95$, alors il y a une forte corrélation linéaire entre les variables.
+    \item La droite de régression passe toujours par le point moyen $G(\bar{x}, \bar{y})$.
+\end{enumerate}
+
+\begin{correction}
+\begin{enumerate}
+    \item \textbf{Vrai.} $|r| = 0.95$ est proche de 1. Le signe négatif indique juste que la relation est décroissante.
+    \item \textbf{Vrai.} C'est une propriété fondamentale de la méthode des moindres carrés.
+\end{enumerate}
+\end{correction}
+
+\autoeval{
+Je sais représenter un nuage de points et calculer le point moyen & & \\ \hline
+Je sais calculer la covariance et le coefficient de corrélation & & \\ \hline
+Je sais déterminer la droite de régression (Moyenne, Moindres Carrés) & & \\ \hline
+Je sais effectuer un changement de variable pour un ajustement non linéaire & & \\
+}

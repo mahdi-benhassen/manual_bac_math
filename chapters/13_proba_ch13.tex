@@ -1,0 +1,155 @@
+\chapter{Variables Aléatoires et Lois}
+
+\section{Rappels Théoriques}
+
+\subsection{Variable Aléatoire Discrète}
+Une variable aléatoire $X$ associe un réel à chaque issue de l'univers $\Omega$.
+\begin{itemize}
+    \item \textbf{Loi de probabilité :} On donne les valeurs $x_i$ prises par $X$ et les probabilités $p_i = P(X=x_i)$. (Avec $\sum p_i = 1$).
+    \item \textbf{Espérance :} $E(X) = \sum x_i p_i$. (Moyenne théorique).
+    \item \textbf{Variance :} $V(X) = \sum p_i (x_i - E(X))^2 = E(X^2) - (E(X))^2$.
+    \item \textbf{Écart-type :} $\sigma(X) = \sqrt{V(X)}$.
+\end{itemize}
+
+\subsection{Loi Binomiale $\mathcal{B}(n, p)$}
+On répète $n$ fois une épreuve de Bernoulli (Succès $p$, Échec $q=1-p$) de manière identique et indépendante.
+$X$ compte le nombre de succès.
+\[ P(X = k) = C_n^k p^k (1-p)^{n-k} \quad \text{pour } k \in \{0, \dots, n\} \]
+\begin{itemize}
+    \item Espérance : $E(X) = np$.
+    \item Variance : $V(X) = np(1-p)$.
+\end{itemize}
+
+\subsection{Lois à Densité (Continues)}
+$X$ prend ses valeurs dans un intervalle $I$. La probabilité est définie par une fonction densité $f \geq 0$ telle que $\int_I f(t) dt = 1$.
+\[ P(a \leq X \leq b) = \int_a^b f(t) dt \]
+
+\textbf{Loi Uniforme sur $[a, b]$ :}
+Densité constante $f(x) = \frac{1}{b-a}$ sur $[a, b]$.
+\[ P(c \leq X \leq d) = \frac{d-c}{b-a} \]
+Espérance : $E(X) = \frac{a+b}{2}$.
+
+\textbf{Loi Exponentielle de paramètre $\lambda > 0$ :}
+Densité sur $[0, +\infty[$ : $f(t) = \lambda e^{-\lambda t}$.
+\[ P(X \leq t) = \int_0^t \lambda e^{-\lambda x} dx = [-e^{-\lambda x}]_0^t = 1 - e^{-\lambda t} \]
+\[ P(X > t) = e^{-\lambda t} \]
+\begin{itemize}
+    \item Espérance (durée de vie moyenne) : $E(X) = \frac{1}{\lambda}$.
+    \item \textbf{Absence de mémoire :} $P(X > t+s | X > t) = P(X > s)$.
+\end{itemize}
+
+\section{Exercices de Compréhension}
+
+\begin{rappel}
+\textbf{Objectif :} Calculer l'espérance d'une loi binomiale et une probabilité exponentielle.
+\end{rappel}
+
+\textbf{Exercice 13.1 : Loi Binomiale}
+Un tireur atteint sa cible avec une probabilité $p=0.8$. Il tire 10 fois.
+Soit $X$ le nombre de succès.
+1. Quelle est la loi de $X$ ?
+2. Calculer l'espérance de $X$.
+3. Calculer la probabilité d'atteindre exactement 9 fois la cible.
+
+\begin{correction}
+1. Répétition identique et indépendante (supposée). $X$ suit $\mathcal{B}(10, 0.8)$.
+2. $E(X) = n \times p = 10 \times 0.8 = 8$. (En moyenne, il touche 8 fois).
+3. $P(X=9) = C_{10}^9 (0.8)^9 (0.2)^1 = 10 \times 0.8^9 \times 0.2 \approx 0.268$.
+\end{correction}
+
+\textbf{Exercice 13.2 : Loi Exponentielle}
+La durée de vie d'un composant suit une loi exponentielle de moyenne 1000 heures.
+Calculer la probabilité qu'il dure plus de 1000 heures.
+
+\begin{correction}
+$E(X) = 1/\lambda = 1000 \implies \lambda = 0.001$.
+$P(X > 1000) = e^{-0.001 \times 1000} = e^{-1} \approx 0.368$.
+\end{correction}
+
+\section{Exercices Type Bac}
+
+\begin{exobac}
+\textbf{Sujet : Loi Exponentielle et Probabilités Conditionnelles}
+
+La durée de vie (en années) d'un appareil électronique est une variable aléatoire $T$ qui suit une loi exponentielle de paramètre $\lambda$.
+On sait que la probabilité que l'appareil tombe en panne avant 1 an est $P(T \leq 1) = 0.18$.
+
+1. Déterminer la valeur exacte de $\lambda$, puis une valeur approchée à $10^{-3}$ près.
+2. On prendra $\lambda = 0.2$ pour la suite.
+   Calculer la probabilité que l'appareil fonctionne plus de 5 ans.
+3. Sachant que l'appareil a fonctionné 3 ans, quelle est la probabilité qu'il fonctionne encore au moins 2 ans ?
+4. On considère un lot de 5 appareils indépendants. Quelle est la probabilité qu'au moins un d'entre eux fonctionne plus de 5 ans ?
+\end{exobac}
+
+\begin{correction}
+\textbf{1. Calcul de $\lambda$}
+$P(T \leq 1) = 1 - e^{-\lambda(1)} = 1 - e^{-\lambda}$.
+On a $1 - e^{-\lambda} = 0.18 \iff e^{-\lambda} = 0.82$.
+$\iff -\lambda = \ln(0.82) \iff \lambda = -\ln(0.82)$.
+$\lambda \approx 0.198$.
+
+\textbf{2. Durée de vie $> 5$ ans}
+$P(T > 5) = e^{-0.2 \times 5} = e^{-1} \approx 0.368$.
+
+\textbf{3. Durée de vie sans vieillissement}
+On cherche $P(T > 3+2 | T > 3)$.
+D'après la propriété d'absence de mémoire :
+$P(T > 5 | T > 3) = P(T > 2)$.
+$P(T > 2) = e^{-0.2 \times 2} = e^{-0.4} \approx 0.670$.
+Cela signifie que le fait qu'il ait déjà duré 3 ans n'influence pas sa probabilité de durer 2 ans \textit{de plus}.
+
+\textbf{4. Lot de 5 appareils}
+Soit $Y$ le nombre d'appareils fonctionnant plus de 5 ans parmi les 5.
+$Y$ suit une loi binomiale $\mathcal{B}(5, p)$ avec $p = P(T > 5) = e^{-1}$.
+On cherche $P(Y \geq 1) = 1 - P(Y = 0)$.
+$P(Y = 0) = C_5^0 p^0 (1-p)^5 = (1 - e^{-1})^5$.
+Donc $P(Y \geq 1) = 1 - (1 - e^{-1})^5 \approx 1 - (0.632)^5 \approx 1 - 0.10 \approx 0.90$.
+\end{correction}
+
+\textbf{Exercice 13.3 : Probabilités Totales (Arbre)}
+Une usine fabrique des pièces. 2\% sont défectueuses.
+On dispose d'un test de contrôle.
+- Si la pièce est bonne ($B$), le test l'accepte ($A$) avec probabilité 0.96.
+- Si la pièce est défectueuse ($D$), le test la refuse ($R$) avec probabilité 0.98.
+1. Faire un arbre pondéré.
+2. Quelle est la probabilité qu'une pièce soit acceptée ?
+3. Sachant qu'une pièce est acceptée, quelle est la probabilité qu'elle soit défectueuse (Erreur du test) ?
+
+\begin{correction}
+\textbf{1. Arbre}
+$P(D) = 0.02 \implies P(B) = 0.98$.
+$P(A|B) = 0.96 \implies P(R|B) = 0.04$.
+$P(R|D) = 0.98 \implies P(A|D) = 0.02$.
+
+\textbf{2. Probabilité d'acceptation $P(A)$}
+D'après la formule des probabilités totales :
+$P(A) = P(B) \times P(A|B) + P(D) \times P(A|D)$
+$P(A) = 0.98 \times 0.96 + 0.02 \times 0.02$
+$P(A) = 0.9408 + 0.0004 = 0.9412$.
+
+\textbf{3. Probabilité $P(D|A)$ (Théorème de Bayes)}
+$P(D|A) = \frac{P(D \cap A)}{P(A)} = \frac{P(D) \times P(A|D)}{P(A)}$.
+$P(D|A) = \frac{0.0004}{0.9412} \approx 0.000425$.
+La probabilité est très faible (environ 0.04\%).
+\end{correction}
+
+\textbf{Exercice 13.4 : Vrai ou Faux ?}
+Répondre par Vrai ou Faux en justifiant.
+\begin{enumerate}
+    \item Si $X$ suit la loi uniforme sur $[0, 10]$, alors $P(X \geq 5) = 0.5$.
+    \item L'espérance d'une variable aléatoire binomiale $\mathcal{B}(10, 0.5)$ est 5.
+\end{enumerate}
+
+\begin{correction}
+\begin{enumerate}
+    \item \textbf{Vrai.} $P(X \geq 5) = \frac{10-5}{10-0} = \frac{5}{10} = 0.5$.
+    \item \textbf{Vrai.} $E(X) = np = 10 \times 0.5 = 5$.
+\end{enumerate}
+\end{correction}
+
+\autoeval{
+Je sais calculer l'espérance et la variance d'une variable aléatoire & & \\ \hline
+Je reconnais une loi binomiale et sais appliquer sa formule & & \\ \hline
+Je sais faire des calculs avec la loi exponentielle (durée de vie) & & \\ \hline
+Je sais utiliser la propriété d'absence de mémoire & & \\
+}

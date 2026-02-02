@@ -1,0 +1,74 @@
+\chapter{Annexes}
+
+\section{Fiches Récapitulatives}
+
+\subsection{Dérivées et Primitives Usuelles}
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Fonction} $f(x)$ & \textbf{Dérivée} $f'(x)$ & \textbf{Domaine} \\
+\hline
+$k$ & $0$ & $\mathbb{R}$ \\
+$x$ & $1$ & $\mathbb{R}$ \\
+$x^n$ & $nx^{n-1}$ & $\mathbb{R}$ \\
+$\frac{1}{x}$ & $-\frac{1}{x^2}$ & $\mathbb{R}^*$ \\
+$\sqrt{x}$ & $\frac{1}{2\sqrt{x}}$ & $]0, +\infty[$ \\
+$e^x$ & $e^x$ & $\mathbb{R}$ \\
+$\ln x$ & $\frac{1}{x}$ & $]0, +\infty[$ \\
+$\cos x$ & $-\sin x$ & $\mathbb{R}$ \\
+$\sin x$ & $\cos x$ & $\mathbb{R}$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Forme} & \textbf{Primitive} \\
+\hline
+$u' u^n$ & $\frac{u^{n+1}}{n+1}$ \\
+$\frac{u'}{u}$ & $\ln|u|$ \\
+$\frac{u'}{\sqrt{u}}$ & $2\sqrt{u}$ \\
+$u' e^u$ & $e^u$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Valeurs Remarquables de Trigonométrie}
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Angle $x$} & $0$ & $\frac{\pi}{6}$ & $\frac{\pi}{4}$ & $\frac{\pi}{3}$ & $\frac{\pi}{2}$ \\
+\hline
+$\sin x$ & $0$ & $\frac{1}{2}$ & $\frac{\sqrt{2}}{2}$ & $\frac{\sqrt{3}}{2}$ & $1$ \\
+\hline
+$\cos x$ & $1$ & $\frac{\sqrt{3}}{2}$ & $\frac{\sqrt{2}}{2}$ & $\frac{1}{2}$ & $0$ \\
+\hline
+$\tan x$ & $0$ & $\frac{1}{\sqrt{3}}$ & $1$ & $\sqrt{3}$ & \text{Non Défini} \\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Logigrammes de Résolution}
+
+\subsection{Comment déterminer la nature d'une transformation complexe ?}
+Soit $f : z \mapsto z'$.
+\begin{enumerate}
+    \item L'écriture est-elle de la forme $z' = z + b$ ?
+    \begin{itemize}
+        \item OUI $\rightarrow$ \textbf{Translation} de vecteur d'affixe $b$.
+        \item NON $\rightarrow$ Passer à l'étape 2.
+    \end{itemize}
+    \item L'écriture est-elle de la forme $z' = az + b$ ($a \in \mathbb{C}^*, a \neq 1$) ?
+    \begin{itemize}
+        \item OUI $\rightarrow$ \textbf{Similitude Directe} de rapport $k=|a|$ et d'angle $\theta \equiv \arg(a)$.
+        \begin{itemize}
+            \item Si $k=1$ (donc $|a|=1$) $\rightarrow$ \textbf{Rotation}.
+            \item Si $a \in \mathbb{R}^*$ (donc $\theta = 0$ ou $\pi$) $\rightarrow$ \textbf{Homothétie}.
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\section{Sujets Types de Bac Corrigés}
+\textit{Voir les exercices "Type Bac" à la fin de chaque chapitre pour des entraînements ciblés.}

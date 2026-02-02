@@ -1,0 +1,155 @@
+\chapter{Équations Différentielles}
+
+\section{Rappels Théoriques}
+
+\subsection{Équations Linéaires du Premier Ordre}
+Ce sont des équations liant une fonction $y$ et sa dérivée $y'$.
+
+\textbf{Type Homogène :} $y' = ay$ ($a \in \mathbb{R}$)
+Les solutions sont les fonctions définies sur $\mathbb{R}$ par :
+\[ f(x) = k e^{ax} \quad (k \in \mathbb{R}) \]
+
+\textbf{Type avec Second Membre constant :} $y' = ay + b$ ($a \in \mathbb{R}^*, b \in \mathbb{R}$)
+Les solutions sont les fonctions définies sur $\mathbb{R}$ par :
+\[ f(x) = k e^{ax} - \frac{b}{a} \quad (k \in \mathbb{R}) \]
+Remarque : $-\frac{b}{a}$ est la solution constante (dite solution particulière).
+
+\subsection{Équations Linéaires du Second Ordre}
+Ce sont des équations du type $y'' + \omega^2 y = 0$ avec $\omega \in \mathbb{R}^*$.
+Les solutions sont les fonctions définies sur $\mathbb{R}$ par :
+\[ f(x) = A \cos(\omega x) + B \sin(\omega x) \quad (A, B \in \mathbb{R}) \]
+On peut aussi les écrire sous la forme $f(x) = K \sin(\omega x + \phi)$.
+
+\textbf{Condition initiale :} Pour déterminer les constantes ($k$ ou $A, B$), on utilise des conditions initiales (ex: $f(0) = 1$, $f'(0) = 0$).
+
+\section{Exercices de Compréhension}
+
+\begin{rappel}
+\textbf{Objectif :} Résoudre des équations différentielles et déterminer une solution particulière.
+\end{rappel}
+
+\textbf{Exercice 5.1 : Premier ordre}
+Résoudre l'équation $(E) : 2y' + y = 4$.
+Déterminer la solution $f$ telle que $f(0) = 3$.
+
+\begin{correction}
+On met sous la forme $y' = ay + b$.
+$2y' = -y + 4 \iff y' = -\frac{1}{2}y + 2$.
+Ici $a = -1/2$ et $b = 2$.
+Les solutions sont $f(x) = k e^{-x/2} - \frac{2}{-1/2} = k e^{-x/2} + 4$.
+
+Condition initiale $f(0) = 3$ :
+$k e^0 + 4 = 3 \implies k + 4 = 3 \implies k = -1$.
+La solution unique est $f(x) = -e^{-x/2} + 4$.
+\end{correction}
+
+\textbf{Exercice 5.2 : Second ordre}
+Résoudre l'équation $y'' + 9y = 0$.
+Déterminer la solution $g$ telle que $g(0) = 1$ et $g'(0) = 3$.
+
+\begin{correction}
+Forme $y'' + \omega^2 y = 0$ avec $\omega^2 = 9$, donc $\omega = 3$.
+Les solutions sont $y(x) = A \cos(3x) + B \sin(3x)$.
+
+Dérivée : $y'(x) = -3A \sin(3x) + 3B \cos(3x)$.
+
+Conditions initiales :
+1) $g(0) = 1 \implies A \cos(0) + B \sin(0) = 1 \implies A = 1$.
+2) $g'(0) = 3 \implies -3(1) \sin(0) + 3B \cos(0) = 3 \implies 3B = 3 \implies B = 1$.
+
+La solution est $g(x) = \cos(3x) + \sin(3x)$.
+\end{correction}
+
+\textbf{Exercice 5.3 : Problème de Cauchy et Tangente}
+Soit l'équation $(E) : y' + y = e^{-x}$.
+\begin{enumerate}
+    \item Montrer que la fonction $u(x) = x e^{-x}$ est solution de $(E)$.
+    \item Résoudre $(E)$.
+    \item Déterminer la solution $f$ dont la tangente au point d'abscisse 0 est parallèle à la droite d'équation $y = 2x$.
+\end{enumerate}
+
+\begin{correction}
+\textbf{1. Vérification}
+$u(x) = xe^{-x}$. $u'(x) = 1e^{-x} - xe^{-x} = e^{-x}(1-x)$.
+$u'(x) + u(x) = e^{-x}(1-x) + xe^{-x} = e^{-x} - xe^{-x} + xe^{-x} = e^{-x}$.
+Donc $u$ est bien solution.
+
+\textbf{2. Résolution}
+L'équation homogène est $y' + y = 0 \iff y' = -y$. Solutions : $y_0(x) = ke^{-x}$.
+Les solutions de $(E)$ sont $y(x) = ke^{-x} + u(x) = ke^{-x} + xe^{-x} = (k+x)e^{-x}$.
+
+\textbf{3. Condition sur la tangente}
+La pente de la tangente en 0 est $f'(0)$.
+La droite $y=2x$ a pour pente 2.
+On veut $f'(0) = 2$.
+On sait que $f$ vérifie l'équation $(E)$, donc $f'(0) + f(0) = e^{-0} = 1$.
+D'où $f(0) = 1 - f'(0) = 1 - 2 = -1$.
+Or $f(0) = (k+0)e^0 = k$.
+Donc $k = -1$.
+La solution est $f(x) = (x-1)e^{-x}$.
+\end{correction}
+
+\textbf{Exercice 5.4 : Vrai ou Faux ?}
+Répondre par Vrai ou Faux en justifiant.
+\begin{enumerate}
+    \item Les solutions de $y' = 3y + 2$ sont de la forme $k e^{3x} + 2$.
+    \item L'équation $y'' + 4y = 0$ admet une solution vérifiant $y(0)=1$ et $y(\pi/2)=0$.
+\end{enumerate}
+
+\begin{correction}
+\begin{enumerate}
+    \item \textbf{Faux.} La solution constante est $-b/a = -2/3$. Les solutions sont $k e^{3x} - 2/3$.
+    \item \textbf{Vrai.} Solutions : $y(x) = A \cos(2x) + B \sin(2x)$. $y(0)=1 \implies A=1$. $y(\pi/2) = 1 \cos(\pi) + B \sin(\pi) = -1 \neq 0$. Ah attention ! Si on impose $y(\pi/2)=0$, alors $-1 = 0$ impossible.
+    Donc l'affirmation est \textbf{Fausse} avec ces conditions précises (pas de solution).
+\end{enumerate}
+\end{correction}
+
+\autoeval{
+Je sais résoudre $y' = ay + b$ & & \\ \hline
+Je sais résoudre $y'' + \omega^2 y = 0$ & & \\ \hline
+Je sais vérifier une solution particulière & & \\ \hline
+Je sais utiliser une condition initiale & & \\
+}
+
+\section{Exercices Type Bac}
+
+\begin{exobac}
+\textbf{Sujet : Modélisation et équation différentielle}
+
+On considère l'équation différentielle $(E) : y' - 2y = 2e^{2x}$.
+\begin{enumerate}
+    \item Résoudre l'équation homogène $(H) : y' - 2y = 0$.
+    \item Vérifier que la fonction $\phi(x) = 2x e^{2x}$ est une solution particulière de $(E)$.
+    \item Montrer qu'une fonction $f$ est solution de $(E)$ si et seulement si $f - \phi$ est solution de $(H)$.
+    \item En déduire l'ensemble des solutions de $(E)$.
+    \item Déterminer la solution $f$ de $(E)$ dont la courbe passe par le point $A(0, 1)$.
+\end{enumerate}
+\end{exobac}
+
+\begin{correction}
+\textbf{1. Équation homogène}
+$(H) \iff y' = 2y$.
+Les solutions sont $y_H(x) = k e^{2x}$ ($k \in \mathbb{R}$).
+
+\textbf{2. Solution particulière}
+Calculons $\phi'(x)$. Forme $uv$ avec $u=2x, v=e^{2x}$.
+$\phi'(x) = 2e^{2x} + 2x(2e^{2x}) = 2e^{2x} + 4x e^{2x}$.
+Vérifions dans $(E)$ :
+$\phi'(x) - 2\phi(x) = (2e^{2x} + 4x e^{2x}) - 2(2x e^{2x}) = 2e^{2x}$.
+C'est bien égal au second membre. Donc $\phi$ est solution.
+
+\textbf{3. Équivalence}
+$f$ solution de $(E) \iff f' - 2f = 2e^{2x}$.
+Or on sait que $\phi' - 2\phi = 2e^{2x}$.
+Par soustraction : $(f' - \phi') - 2(f - \phi) = 0$.
+$\iff (f - \phi)' - 2(f - \phi) = 0$.
+$\iff f - \phi$ est solution de $(H)$.
+
+\textbf{4. Ensemble des solutions}
+$f - \phi = y_H \implies f = \phi + y_H$.
+$f(x) = 2x e^{2x} + k e^{2x} = (2x + k)e^{2x}$.
+
+\textbf{5. Condition initiale}
+$f(0) = 1 \implies (0 + k)e^0 = 1 \implies k = 1$.
+La solution cherchée est $f(x) = (2x + 1)e^{2x}$.
+\end{correction}

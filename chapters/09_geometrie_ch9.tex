@@ -1,0 +1,148 @@
+\chapter{Isométries et Similitudes du Plan}
+
+\section{Rappels Théoriques}
+
+\subsection{Isométries}
+Une isométrie est une transformation qui conserve les distances.
+\begin{itemize}
+    \item \textbf{Translation} $t_{\vec{u}}$ : $M' = t_{\vec{u}}(M) \iff \vec{MM'} = \vec{u}$.
+    Écriture complexe : $z' = z + b$.
+    
+    \item \textbf{Rotation} $R(O, \theta)$ :
+    Écriture complexe : $z' - \omega = e^{i\theta} (z - \omega)$ (où $\omega$ est l'affixe du centre).
+    
+    \item \textbf{Symétrie Orthogonale} $S_\Delta$ : Antidéplacement (change l'orientation des angles).
+    Écriture complexe : $z' = a \overline{z} + b$ avec $|a|=1$.
+    
+    \item \textbf{Symétrie Glissante} $f = t_{\vec{u}} \circ S_\Delta = S_\Delta \circ t_{\vec{u}}$ avec $\vec{u}$ vecteur directeur de $\Delta$.
+\end{itemize}
+
+\subsection{Similitudes Directes}
+Une similitude directe conserve les angles orientés. Elle multiplie les distances par un réel $k > 0$ (rapport).
+\textbf{Écriture complexe :}
+\[ z' = az + b \quad \text{avec } a \in \mathbb{C}^* \]
+\begin{itemize}
+    \item Si $a = 1$ : Translation de vecteur d'affixe $b$.
+    \item Si $a \neq 1$ : Similitude directe de centre $\Omega$, de rapport $k$ et d'angle $\theta$.
+    \begin{itemize}
+        \item Rapport : $k = |a|$.
+        \item Angle : $\theta \equiv \arg(a) [2\pi]$.
+        \item Centre $\Omega$ : Point fixe, affixe solution de $\omega = a\omega + b \implies \omega = \frac{b}{1-a}$.
+    \end{itemize}
+\end{itemize}
+\textbf{Forme réduite :} $z' - \omega = k e^{i\theta} (z - \omega)$.
+
+\subsection{Similitudes Indirectes et Antidéplacements}
+\textbf{Distinction Fondamentale :}
+\begin{itemize}
+    \item \textbf{Antidéplacement :} C'est une isométrie indirecte. Elle conserve les distances et inverse les angles orientés. Son écriture complexe est $z' = a \overline{z} + b$ avec $|a|=1$.
+    \item \textbf{Similitude Indirecte :} Elle multiplie les distances par $k$ et inverse les angles. Son écriture complexe est $z' = a \overline{z} + b$ avec $|a|=k$.
+    \textit{Note : Un antidéplacement est une similitude indirecte de rapport $k=1$.}
+\end{itemize}
+
+\textbf{Écriture complexe :}
+\[ z' = a \overline{z} + b \quad \text{avec } a \in \mathbb{C}^* \]
+Rapport $k = |a|$.
+Si $k \neq 1$, c'est la composée d'une homothétie et d'une symétrie axiale.
+\begin{itemize}
+    \item Centre $\Omega$ : Unique point fixe.
+    \item Axe $\Delta$ : Axe de la symétrie.
+\end{itemize}
+
+\section{Exercices de Compréhension}
+
+\begin{rappel}
+\textbf{Objectif :} Identifier une transformation à partir de son écriture complexe.
+\end{rappel}
+
+\textbf{Exercice 9.1 : Identification}
+Donner la nature et les éléments caractéristiques de la transformation $f$ définie par :
+\[ f(z) = (1+i)z + 1 \]
+
+\begin{correction}
+Forme $f(z) = az + b$ avec $a = 1+i$.
+$a \neq 1$, donc c'est une similitude directe.
+\begin{itemize}
+    \item \textbf{Rapport :} $k = |1+i| = \sqrt{1^2+1^2} = \sqrt{2}$.
+    \item \textbf{Angle :} $\theta \equiv \arg(1+i)$. $\cos \theta = 1/\sqrt{2}$, $\sin \theta = 1/\sqrt{2}$. Donc $\theta = \frac{\pi}{4}$.
+    \item \textbf{Centre :} $\omega = \frac{1}{1 - (1+i)} = \frac{1}{-i} = i$.
+\end{itemize}
+Conclusion : Similitude directe de centre $\Omega(0, 1)$, de rapport $\sqrt{2}$ et d'angle $\pi/4$.
+\end{correction}
+
+\section{Exercices Type Bac}
+
+\begin{exobac}
+\textbf{Sujet : Similitude directe}
+
+Dans le plan complexe, on considère les points $A(1)$ et $B(2i)$.
+Soit $S$ la similitude directe qui transforme $O$ en $A$ et $A$ en $B$.
+\begin{enumerate}
+    \item Déterminer l'écriture complexe de $S$.
+    \item Déterminer le centre $\Omega$, le rapport $k$ et l'angle $\theta$ de $S$.
+    \item Soit $M_n$ la suite de points définie par $M_0 = O$ et $M_{n+1} = S(M_n)$.
+    Calculer la distance $\Omega M_n$ en fonction de $n$.
+\end{enumerate}
+\end{exobac}
+
+\begin{correction}
+\textbf{1. Écriture complexe}
+$S$ est une similitude directe, donc $z' = az + b$.
+\begin{itemize}
+    \item $S(O) = A \implies z_A = a(0) + b \implies 1 = b$.
+    \item $S(A) = B \implies z_B = a(z_A) + b \implies 2i = a(1) + 1 \implies a = 2i - 1 = -1 + 2i$.
+\end{itemize}
+L'écriture est : $z' = (-1+2i)z + 1$.
+
+\textbf{2. Éléments caractéristiques}
+\begin{itemize}
+    \item \textbf{Rapport :} $k = |-1+2i| = \sqrt{(-1)^2 + 2^2} = \sqrt{5}$.
+    \item \textbf{Angle :} $\theta = \arg(-1+2i)$. (Valeur non remarquable, on laisse $\arg(-1+2i)$).
+    \item \textbf{Centre :} $\omega = \frac{b}{1-a} = \frac{1}{1 - (-1+2i)} = \frac{1}{2 - 2i} = \frac{1}{2(1-i)} = \frac{1+i}{2(2)} = \frac{1}{4} + \frac{1}{4}i$.
+\end{itemize}
+
+\textbf{3. Suite de points}
+On sait que $z_{n+1} - \omega = a(z_n - \omega)$.
+En passant aux modules : $|z_{n+1} - \omega| = |a| |z_n - \omega|$.
+Soit $d_n = \Omega M_n$. On a $d_{n+1} = k d_n = \sqrt{5} d_n$.
+$(d_n)$ est une suite géométrique de raison $\sqrt{5}$.
+$d_0 = \Omega M_0 = \Omega O = |\omega| = \sqrt{(1/4)^2 + (1/4)^2} = \sqrt{2/16} = \frac{\sqrt{2}}{4}$.
+Donc $d_n = \frac{\sqrt{2}}{4} (\sqrt{5})^n$.
+\end{correction}
+
+\textbf{Exercice 9.3 : Image d'un cercle}
+Soit $S$ la similitude directe d'écriture $z' = 2i z + 1 - i$.
+Déterminer l'image du cercle $\mathcal{C}$ de centre $A(1, -1)$ et de rayon 2.
+
+\begin{correction}
+L'image d'un cercle de centre $A$ et de rayon $R$ par une similitude de rapport $k$ est un cercle de centre $A' = S(A)$ et de rayon $R' = kR$.
+\textbf{Rapport :} $k = |2i| = 2$.
+\textbf{Centre image :} $z_{A'} = 2i(1-i) + 1 - i = 2i - 2i^2 + 1 - i = 2i + 2 + 1 - i = 3 + i$.
+Donc $A'(3, 1)$.
+\textbf{Rayon image :} $R' = k \times R = 2 \times 2 = 4$.
+L'image est le cercle de centre $A'(3, 1)$ et de rayon 4.
+\end{correction}
+
+\textbf{Exercice 9.4 : Vrai ou Faux ?}
+Répondre par Vrai ou Faux en justifiant la réponse.
+\begin{enumerate}
+    \item La composée de deux similitudes directes est une similitude directe.
+    \item L'application $f : z \mapsto \bar{z} + 1$ admet un point invariant.
+\end{enumerate}
+
+\begin{correction}
+\begin{enumerate}
+    \item \textbf{Vrai.} $z' = az+b$ et $z'' = a'z' + b'$. Donc $z'' = a'(az+b) + b' = (a'a)z + (a'b+b')$. C'est bien la forme $Az+B$.
+    \item \textbf{Faux.} Résolvons $z = \bar{z} + 1$. Si $z = x+iy$, alors $x+iy = x-iy + 1 \iff 2iy = 1 \iff y = 1/2i = -i/2$.
+    Mais on doit aussi avoir $x = x+1$, impossible. C'est une symétrie glissante (pas de point fixe).
+\end{enumerate}
+\end{correction}
+
+\autoeval{
+Je sais déterminer les éléments caractéristiques d'une similitude & & \\ \hline
+Je sais trouver l'écriture complexe d'une similitude définie par deux points & & \\ \hline
+Je sais déterminer l'image d'une figure (cercle, droite) & & \\ \hline
+Je connais le lien entre suite géométrique et similitude & & \\
+}
+
+\section{Exercices Type Bac}
